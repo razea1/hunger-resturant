@@ -1,0 +1,21 @@
+import React from "react";
+import Navbar from "./components/Navbar.jsx";
+import Home from "./components/Home.jsx";
+import Menu from "./components/Menu.jsx";
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+      <main>
+        <div id="home">
+          <Home />
+        </div>
+        <div id="menu">
+          <Menu />
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default App;
