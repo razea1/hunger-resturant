@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import "../layouts/DishesCard.css"; // Import the CSS file
 
 const DishesCard = (props) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -24,97 +25,50 @@ const DishesCard = (props) => {
           <div className="pt-4 space-y-2" style={{ textAlign: "right" }}>
             <h1 className="font-semibold mb-2">: ירקות על המנה</h1>
             <div className="space-y-2">
-              <div>
-                <input type="checkbox" id="option1" />
-                <label htmlFor="option1" className="pl-2">
-                  חסה
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option2" />
-                <label htmlFor="option2" className="pl-2">
-                  מלפפון חמוץ
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option3" />
-                <label htmlFor="option3" className="pl-2">
-                  עגבניה
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option4" />
-                <label htmlFor="option4" className="pl-2">
-                  בצל
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option5" />
-                <label htmlFor="option5" className="pl-2">
-                  סלט קרוב
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option6" />
-                <label htmlFor="option6" className="pl-2">
-                  צימצורי
-                </label>
-              </div>
+              {["חסה", "מלפפון חמוץ", "עגבניה", "בצל", "סלט קרוב", "צימצורי"].map((option, index) => (
+                <div className="checkbox-wrapper-30 checkbox-container" key={index}>
+                  <label htmlFor={`option-${props.id}-${index}`} className="pl-2">
+                    {option}
+                  </label>
+                  <span className="checkbox">
+                    <input type="checkbox" id={`option-${props.id}-${index}`} />
+                    <svg>
+                      <use xlinkHref="#checkbox-30" className="checkbox"></use>
+                    </svg>
+                  </span>
+                </div>
+              ))}
             </div>
             <h1 className="font-semibold mb-2">: תוספת למנה רגילה</h1>
             <div className="space-y-2">
-              <div>
-                <input type="checkbox" id="option1" />
-                <label htmlFor="option1" className="pl-2">
-                  חריפות 15
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option2" />
-                <label htmlFor="option2" className="pl-2">
-                  15 צלי כתף
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option3" />
-                <label htmlFor="option3" className="pl-2">
-                  אונטרייב 15
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option4" />
-                <label htmlFor="option4" className="pl-2">
-                  ביקון טלה 15
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option5" />
-                <label htmlFor="option5" className="pl-2">
-                  אסאדו 18
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option6" />
-                <label htmlFor="option6" className="pl-2">
-                  רוטב גבינה 8
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option7" />
-                <label htmlFor="option7" className="pl-2">
-                  פטריות 5
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="option8" />
-                <label htmlFor="option8" className="pl-2">
-                  ג׳בטה 5
-                </label>
-              </div>
+              {["הקפצת בלסמי 5", "12 צלי כתף", "אונטרייב 12", "ביקון טלה 10", "אסאדו 15", "רוטב גבינה 8", "פטריות 5", "ג׳בטה 5"].map(
+                (option, index) => (
+                  <div className="checkbox-wrapper-30 checkbox-container" key={index}>
+                    <label htmlFor={`extraOption-${props.id}-${index}`} className="pl-2">
+                      {option}
+                    </label>
+                    <span className="checkbox">
+                      <input type="checkbox" id={`extraOption-${props.id}-${index}`} />
+                      <svg>
+                        <use xlinkHref="#checkbox-30" className="checkbox"></use>
+                      </svg>
+                    </span>
+                  </div>
+                )
+              )}
             </div>
           </div>
         )}
       </div>
+      <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
+        <symbol id="checkbox-30" viewBox="0 0 22 22">
+          <path
+            fill="none"
+            stroke="currentColor"
+            d="M5.5,11.3L9,14.8L20.2,3.3l0,0c-0.5-1-1.5-1.8-2.7-1.8h-13c-1.7,0-3,1.3-3,3v13c0,1.7,1.3,3,3,3h13 c1.7,0,3-1.3,3-3v-13c0-0.4-0.1-0.8-0.3-1.2"
+          />
+        </symbol>
+      </svg>
     </div>
   );
 };
